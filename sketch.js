@@ -8,7 +8,7 @@
 let vehicle;
 
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(800, 800);
   vehicle = new Vehicle(100, 100);
 }
 
