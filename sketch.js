@@ -9,7 +9,10 @@ let vehicle;
 
 function setup() {
   createCanvas(800, 800);
-  vehicle = new Vehicle(100, 100);
+  vehicles = [];
+  for (i = 0; i < 100; i++){
+    vehicles.push(new Vehicle(Math.floor(Math.random() * 800), Math.floor(Math.random() * 800)));
+  }
 }
 
 function draw() {
@@ -20,8 +23,12 @@ function draw() {
   noStroke();
   ellipse(target.x, target.y, 32);
 
-  let steering = vehicle.arrive(target);
-  vehicle.applyForce(steering);
-  vehicle.update();
-  vehicle.show();
+  for (i = 0; i < vehicles.length; i++){
+    vehicle = vehicles[i];
+    let steering = vehicle.seek(target);
+    vehicle.applyForce(steering);
+    vehicle.update();
+    vehicle.show();
+  }
+
 }
