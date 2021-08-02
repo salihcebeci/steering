@@ -6,10 +6,11 @@
 // https://editor.p5js.org/codingtrain/sketches/1eUnUQnwB
 
 class Vehicle {
-  constructor(x, y) {
+  constructor(x, y, col) {
     this.pos = createVector(x, y);
     this.vel = createVector(0, 0);
     this.acc = createVector(0, 0);
+    this.col = col;
     this.maxSpeed = 6;
     this.maxForce = 0.4;
     this.r = 16;
@@ -70,7 +71,7 @@ class Vehicle {
   show() {
     stroke(255);
     strokeWeight(2);
-    fill(255);
+    fill(this.col);
     push();
     translate(this.pos.x, this.pos.y);
     rotate(this.vel.heading());
